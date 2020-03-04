@@ -1,0 +1,17 @@
+.table_style{
+    margin-left: 25px;
+    width: 1100px;
+    border: 1px solid black;
+    text-align: center;
+    background-color: rgba(231, 229, 229, 0.534);
+}
+
+.rowStyle{
+    height: 50px;
+}
+
+.headStyle{
+    border: 1px solid black;
+    width: 50px;
+    padding-bottom: 10px;
+}
