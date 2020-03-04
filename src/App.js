@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
 import Nav from './Nav'
-import CreateAccount from './CreateAccount'
-import RemoveAccount from './RemoveAccount'
+import CreateAccount from './forms/CreateAccount'
+import RemoveAccount from './forms/RemoveAccount'
 import BoxLayout from './BoxLayout'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 

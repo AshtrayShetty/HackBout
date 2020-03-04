@@ -1,8 +1,8 @@
 import React from "react"
-import Money from './Money'
-import MaxPassengers from './MaxPassengers'
-import BusTable from './BusTable'
-import Heatmap from './Heatmap'
+import Money from './charts/Money'
+import MaxPassengers from './charts/MaxPassengers'
+import BusTable from './charts/BusTable'
+import Heatmap from './charts/Heatmap'
 // import TravelAPI from './TravelAPI'
 
 const BoxLayout=()=>{

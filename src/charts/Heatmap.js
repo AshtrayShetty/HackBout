@@ -36,9 +36,7 @@ const Heatmap=(props)=>{
                 });
             });
         });
-        console.log(countArr);
         setCountDate(countArr);
-        
     }
 
 
