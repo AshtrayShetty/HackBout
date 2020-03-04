@@ -3,61 +3,57 @@ import CalendarHeatmap from 'react-calendar-heatmap'
 import 'react-calendar-heatmap/dist/styles.css'
 import boxStyle from './box.module.css'
 
-const Heatmap=()=>{
-
+const Heatmap=(props)=>{
+    
     let startDate=new Date();
-    startDate.setMonth(startDate.getMonth-4);
+    startDate.setMonth(startDate.getMonth()-4);
     let endDate=new Date();
-    let tempDate=startDate;
-
-    // while(tempDate<=endDate){
-    //     dateArr.push(tempDate);
-    //     
-    // }
-
+    let tempDate=new Date();
+    tempDate.setMonth(startDate.getMonth());
+    tempDate.setFullYear(startDate.getFullYear());    
     const [countDate, setCountDate]=useState([]);
     
     useEffect(()=>{
         getCountArr();
     }, []);
-
+    
     const getCountArr=async()=>{
         const response= await fetch('http://localhost:4010/analytics/routes');
         const data=await response.json();
-        let countArr=[];
         let obj={
             date: '',
             count: 0
         };
-        for(let i=data.routes.days.length-5; i<data.routes.days.length; i++){
-            let dayArr=data.route.days[i];
-            for(let j=0; j<dayArr.length && tempDate<=endDate; j++){
-                obj.date=tempDate;
-                obj.count=dayArr[j];
-                countArr.push(obj);
-                tempDate.setDate(tempDate.getDay()+1);
-            }
-        }
-        while(tempDate<=endDate){
-            obj.count=0;
-            obj.date=tempDate;
-            tempDate.setDate(tempDate.getDay()+1);
-            countArr.push(obj);
-        }
+        const countArr=[];
+        data.routes.forEach(route => {
+            route.days.forEach(hour=>{
+                hour.forEach(population=>{
+                    obj.date=`${tempDate.getFullYear()}-${tempDate.getMonth()}-${tempDate.getDate()}`;
+                    obj.count=population;
+                    countArr.push(obj);
+                    tempDate.setDate(tempDate.getDate()+1);
+                    obj={date: '', count: 0};
+                });
+            });
+        });
+        console.log(countArr);
         setCountDate(countArr);
+        
     }
 
 
     return(
-        <div className={boxStyle.box} style={{width: '1000px', height: '1000px'}}>
-            <div style={{width: '500px', height: '200px'}}>
+        <div className={boxStyle.box} style={{width: '700px', height: '350px'}}>
+            <h1 className={boxStyle.header}>{props.title}</h1>
+            <div style={{height: '600px', width: '600px', marginTop: '20px'}}>
                 <CalendarHeatmap
-                    startDate={startDate}
-                    endDate={endDate}
+                    startDate={`${startDate.getFullYear()}-${startDate.getMonth()}-${startDate.getDate()}`}
+                    endDate={`${endDate.getFullYear()}-${endDate.getMonth()}-${endDate.getDate()}`}
                     values={countDate}
                     showMonthLabels={true}
                     showWeekdayLabels={true}
                 />
+                {console.log(countDate)}
             </div>
         </div>
     );
