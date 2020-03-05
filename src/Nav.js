@@ -15,7 +15,6 @@ const Nav=()=>{
                     <Link to="/account/create" className="links"><li >Create Account</li></Link>
                     <Link to="/account/delete" className="links"><li>Remove Account</li></Link>
                     <Link to="/logout" className="links"><li><i className="fas fa-power-off"></i> Logout</li></Link>
-                    <a href="./map.html" className="links">Map</a>
                 </ul>
             </nav>  
     );

@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import CalendarHeatmap from 'react-calendar-heatmap'
 import 'react-calendar-heatmap/dist/styles.css'
 import boxStyle from './box.module.css'
+import ReactTooltip from 'react-tooltip'
 
 const Heatmap=(props)=>{
     
@@ -39,6 +40,7 @@ const Heatmap=(props)=>{
         setCountDate(countArr);
     }
 
+    const dataAttr=()=>countDate.map(data=>`${data.date} has a value: ${data.count}`)
 
     return(
         <div className={boxStyle.box} style={{width: '700px', height: '350px'}}>
@@ -50,8 +52,19 @@ const Heatmap=(props)=>{
                     values={countDate}
                     showMonthLabels={true}
                     showWeekdayLabels={true}
+                    classForValue={value => {
+                        if (!value) {
+                            return 'color-empty';
+                        }
+                        return `color-github-${(value.count)%5}`;
+                    }}
+                    tooltipDataAttrs={value => {
+                    return {
+                        'data-tip': `${value.date} had passenger count: ${value.count}`,
+                    };
+                    }}
                 />
-                {console.log(countDate)}
+                <ReactTooltip />
             </div>
         </div>
     );
