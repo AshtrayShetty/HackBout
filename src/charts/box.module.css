@@ -22,3 +22,14 @@
     overflow: hidden;
     height: 45px;
 }
+
+.markerBtn{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.markerBtn img{
+    width: 20px;
+    height: 20px;
+}
