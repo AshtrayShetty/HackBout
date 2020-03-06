@@ -5,7 +5,7 @@ This project was a part of our idea for HackBout, which was conducted at NITTE M
 This project requires fetching data from the mock API (used for the demo). 
 Information about this can be found in the repository [Osmosis Spec](https://github.com/neelkamath/osmosis-spec/blob/master/docs/mock_server.md), which was created by [Neel Kamath](https://github.com/neelkamath).
 
-The passenger and conductor's app were created by [https://github.com/Arjunadappa](Arjun Adappa).
+The passenger and conductor's app were created by [Arjun Adappa](https://github.com/Arjunadappa).
 
 ## Available Scripts
 
