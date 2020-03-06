@@ -1,5 +1,12 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+This project was a part of our idea for HackBout, which was conducted at NITTE Meenakshi from 4th-5th March 2020. It contains the Admin Panel for our project. 
+
+This project requires fetching data from the mock API (used for the demo). 
+Information about this can be found in the repository [https://github.com/neelkamath/osmosis-spec/blob/master/docs/mock_server.md](Osmosis Spec), which was created by [https://github.com/neelkamath](Neel Kamath).
+
+The passenger and conductor's app were created by [https://github.com/Arjunadappa](Arjun Adappa).
+
 ## Available Scripts
 
 In the project directory, you can run:
