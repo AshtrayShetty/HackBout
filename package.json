@@ -7,7 +7,6 @@
     "@testing-library/react": "^9.4.1",
     "@testing-library/user-event": "^7.2.1",
     "chart.js": "^2.9.3",
-    "d3.js": "0.0.2-security",
     "mapbox-gl": "^1.8.1",
     "mapmyindia-react": "^1.0.4",
     "moment": "^2.24.0",

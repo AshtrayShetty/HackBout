@@ -14,7 +14,6 @@ const BoxLayout=()=>{
             <Money title="Money Transactions" />
             <Heatmap title="Passenger Density per Day" />
             <BusTable title="Bus Table" />
-            {/* <TravelAPI title="Bus Tracker"/> */}
             <MapGL title="Bus Tracker" />
         </div>
     );

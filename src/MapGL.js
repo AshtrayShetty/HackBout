@@ -15,7 +15,8 @@ const MapGl=(props)=>{
         zoom: 15
     });
 
-    // http://localhost:4010/buses
+    // http://c93139fb.ngrok.io/buses
+    // 
     const [object, setObject]=useState([]);
     const [stop, setStop]=useState([]);
     const [selectedLoc, setSelectedLoc]=useState(null);
@@ -26,7 +27,7 @@ const MapGl=(props)=>{
     }, []);
 
     const getObjectArr=async()=>{
-        const response=await fetch('http://c93139fb.ngrok.io/buses');
+        const response=await fetch('http://localhost:4010/buses');
         const data=await response.json();
         console.log(data.buses);
         setObject(data.buses);
@@ -47,7 +48,7 @@ const MapGl=(props)=>{
                 mapStyle="mapbox://styles/ashray1/ck7e9vzl106zu1ilgo9rorno8"
             >
                 {object.map(obj=>(
-                    <Marker key={object.indexOf(obj)} latitude={obj.longitude} longitude={obj.latitude}>
+                    <Marker key={object.indexOf(obj)} latitude={obj.longitude+0.02} longitude={obj.latitude+0.02}>
                         <button 
                             className={boxStyle.markerBtn}
                             onClick={(e)=>{
@@ -76,8 +77,8 @@ const MapGl=(props)=>{
                 ))}
                 {selectedLoc ? (
                     <Popup 
-                        latitude={selectedLoc.longitude} 
-                        longitude={selectedLoc.latitude}
+                        latitude={selectedLoc.longitude+0.02} 
+                        longitude={selectedLoc.latitude+0.02}
                         onClose={()=>setSelectedLoc(null)}
                     >
                         <div>
